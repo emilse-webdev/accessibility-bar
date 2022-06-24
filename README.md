@@ -9,7 +9,7 @@ It's an accessibility bar (floating modal) that is comprised of the following fe
 - Read me everything that has been selected (just select any text after importing the module and it will be read to you)
 - Font size increment / decrement
 - Lines spacing changer
-- Record your answers to any form, just speak your answer and it will be transcribed in the input
+- Record answers in any form, it will read the questions and transcribe the answer in the input
 
 Everyone is welcome to use it.
 
@@ -24,7 +24,7 @@ return (
 There's an example app in the repo.
 
 ```js
-/example/my-app
+/app/my-app
 npm install
 npm run dev
 ```
