@@ -1,28 +1,8 @@
 <?php
-/*
-Plugin Name: Accessibility Plugin
-Plugin URI: https://webdevstudios.com
-Description: This plugin is for accessibility features on any website.
-Version: 1.0.0
-Author: WebDevStudios
-Author URI: https://webdevstudios.com
-Text Domain: accessibility-modal
-*/
 
 namespace Accessibility;
 
-/**
- * Class AccessibilityModal_Plugin
- *
- * @author WebDevStudios
- */
 class AccessibilityModal_Plugin {
-	/**
-	 * Version
-	 *
-	 * @var string
-	 */
-	const VERSION = '1.0.0';
 
 	private static $instance = null;
 
@@ -40,7 +20,7 @@ class AccessibilityModal_Plugin {
 			'accessibility-modal-js',
 			plugins_url( "dist/{$file_name}.js", __FILE__ ),
 			array(),
-			self::VERSION,
+			'1.0.0',
 			true
 		);
 	}
