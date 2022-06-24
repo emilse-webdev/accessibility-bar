@@ -58,7 +58,7 @@ function AccessibilityModal ({}): JSX.Element {
         text.map(item => {
             let current_fontsize = $(item).css('font-size');
             if (current_fontsize) { current_fontsize = current_fontsize.split("px")[0]; }
-            if (action == 'increment') { current_fontsize = (parseInt(current_fontsize) + how_much_increment) 
+            if (action == 'increment') { current_fontsize = (parseInt(current_fontsize) + how_much_increment)
             } else { current_fontsize = (parseInt(current_fontsize) - how_much_increment) }
             $(item).css('font-size',  current_fontsize + 'px');
         })
@@ -98,11 +98,11 @@ function AccessibilityModal ({}): JSX.Element {
         console.log('Readme! ' + whattoread)
         if ('speechSynthesis' in window) {
             console.log('Speech Synthesis supported')
-    
+
             let msg = new SpeechSynthesisUtterance();
             msg.text = whattoread;
             window.speechSynthesis.speak(msg);
-    
+
         } else {
             console.log("Sorry, your browser doesn't support text to speech!");
         }
@@ -125,15 +125,17 @@ function AccessibilityModal ({}): JSX.Element {
         recognition.onstart = function() {
             beep();
         }
-        
+
         recognition.onspeechend = function() {
             beep();
             recognition.stop();
         }
-      
+
         recognition.onresult = function(event) {
-            var transcript = event.results[0][0].transcript;
-            output.value = transcript;
+            var transcript = event.results[0][0].transcript as HTMLInputElement | null;
+            if (transcript != null){
+                output.value = transcript;
+            }
         }
 
         recognition.start();
@@ -146,7 +148,7 @@ function AccessibilityModal ({}): JSX.Element {
             setTimeout(() => readmeText(whattoread), 20);
           }
         };
-      
+
         document.addEventListener('mouseup', handleDocumentMouseUp);
         return () => {
           document.removeEventListener('mouseup', handleDocumentMouseUp);
